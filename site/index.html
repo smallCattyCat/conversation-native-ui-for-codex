@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FAF9F5">
+  <meta name="description" content="Independent Claude-inspired interface patterns for Codex. Reusable Agent Skill, semantic tokens and interactive browser examples.">
+  <title>Conversation-Native UI for Codex</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="assets/claude-inspired.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="cnui">
+  <a class="skip-link" href="#examples">Skip to examples</a>
+  <header class="site-header">
+    <a class="site-brand" href="./">Conversation-Native <span aria-hidden="true" class="brand-dot"></span></a>
+    <nav aria-label="Primary">
+      <a href="#principles">Philosophy</a>
+      <a href="#examples">Examples</a>
+      <a href="https://github.com/smallCattyCat/conversation-native-ui-for-codex">GitHub ↗</a>
+    </nav>
+  </header>
+  <main>
+    <section class="hero">
+      <p class="overline">An independent Codex design starter</p>
+      <h1>Interfaces that give<br><em>ideas room to work.</em></h1>
+      <p class="hero-description">Source-mapped Claude-inspired visual details, lightweight components and interaction patterns for AI products. Borrow the discipline, build your own identity.</p>
+      <div class="hero-actions">
+        <a class="cn-button cn-button--primary" href="#examples">Explore examples ↓</a>
+        <a class="cn-button" href="https://github.com/smallCattyCat/conversation-native-ui-for-codex/blob/main/README.md">Read the guide ↗</a>
+      </div>
+      <p class="disclaimer">Unofficial. Independently implemented; no model connection, copied product assets or hosted MCP App.</p>
+    </section>
+    <section class="principles" id="principles" aria-label="Design principles">
+      <div class="principle"><span>01</span><strong>Read before acting.</strong><p>Prioritize meaningful text, small controls and restrained color.</p></div>
+      <div class="principle"><span>02</span><strong>Reveal complexity when needed.</strong><p>One result in a card. Multiple choices in a collection. Substantial work in a workbench.</p></div>
+      <div class="principle"><span>03</span><strong>Make actions honest.</strong><p>Never confuse a suggestion, a local confirmation and actual execution.</p></div>
+    </section>
+    <section class="examples" id="examples" aria-labelledby="examples-title">
+      <div class="examples-head"><p class="overline">Interactive reference pages</p><h2 id="examples-title">Start with a working example.</h2><p>These are real browser controls with illustrative data, not static mockups.</p></div>
+      <div class="example-list">
+        <a class="example-row" href="examples/claude-inspired/">
+          <span class="example-index">01</span><span><strong>Conversation and writing</strong><span class="detail">Warm reading canvas, an editable note and theme switching</span></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="example-row" href="examples/pattern-gallery/">
+          <span class="example-index">02</span><span><strong>Interaction pattern gallery</strong><span class="detail">Inline card states, an option carousel and a document workspace</span></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="example-row" href="examples/evidence-workbench/">
+          <span class="example-index">03</span><span><strong>Evidence-aware workbench</strong><span class="detail">Provenance, applicability and local human review</span></span><span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+    <section class="install" aria-labelledby="install-title">
+      <div><p class="overline">Reusable in Codex</p><h2 id="install-title">Start with one Skill.</h2><p>Copy the project-local Agent Skill into your own repository. No authentication, design-file access or production API keys required for the examples.</p></div>
+      <code>python3 scripts/install_skill.py --target /your/project</code>
+    </section>
+  </main>
+  <footer class="site-footer"><span>Original UI components · Public design sources credited in the repository</span><a href="https://github.com/smallCattyCat/conversation-native-ui-for-codex/blob/main/NOTICE.md">Attribution & license ↗</a></footer>
+</body>
+</html>

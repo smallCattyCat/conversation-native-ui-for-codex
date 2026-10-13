@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FAF9F5"><title>Pattern gallery — Conversation-Native UI</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../.agents/skills/conversation-native-ui/assets/claude-inspired.css">
+  <link rel="stylesheet" href="../../.agents/skills/conversation-native-ui/assets/patterns.css">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body class="cnui" data-theme="light">
+<a class="skip-link" href="#main">Skip to patterns</a>
+<header class="gallery-header">
+  <a class="gallery-brand" href="../claude-inspired/index.html">Commonplace <span aria-hidden="true" class="brand-mark"></span></a>
+  <nav aria-label="Examples"><a href="../claude-inspired/index.html">Conversation</a><a aria-current="page" href="index.html">Patterns</a><a href="../evidence-workbench/index.html">Workbench</a></nav>
+  <div class="theme-switch" role="group" aria-label="Theme">
+    <button class="cn-button" data-gallery-theme="light" aria-pressed="true">Light</button>
+    <button class="cn-button" data-gallery-theme="dark" aria-pressed="false">Dark</button>
+    <button class="cn-button" data-gallery-theme="system" aria-pressed="false">System</button>
+  </div>
+</header>
+<main id="main" class="gallery-main">
+  <header class="hero"><h1>Small surfaces. Clear next steps.</h1><p>Three interactive patterns for carrying a conversation into useful work.</p></header>
+  <section class="pattern-section" aria-labelledby="card-heading">
+    <div class="pattern-head"><div><span class="pattern-number">01 / INLINE CARD</span><h2 id="card-heading">One result, two actions.</h2><p>Keep the answer brief. Let the user inspect more only when needed.</p></div></div>
+    <div class="view-controls" role="group" aria-label="Inline card demonstration state">
+      <button type="button" data-card-view="ready" aria-pressed="true">Ready</button>
+      <button type="button" data-card-view="loading" aria-pressed="false">Loading</button>
+      <button type="button" data-card-view="empty" aria-pressed="false">Empty</button>
+      <button type="button" data-card-view="error" aria-pressed="false">Error</button>
+    </div>
+    <div class="card-frame">
+      <article class="cn-pattern-card" id="inline-card" aria-label="Sample inline result">
+        <div id="card-ready"><p class="card-context">Writing assistant · sample response</p>
+          <h3>A clearer way to structure the idea</h3>
+          <p>Put the central claim first, then explain how each example supports it.</p>
+          <div class="cn-metadata"><span>Suggested revision</span><span>Version 1</span><span>Illustrative</span></div>
+        </div>
+        <div id="card-loading" hidden role="status" aria-label="Sample loading state"><div class="cn-skeleton cn-skeleton--title"></div><div class="cn-skeleton"></div><div class="cn-skeleton cn-skeleton--short"></div><p class="cn-caption">Preview of a loading skeleton; no request is running.</p></div>
+        <div id="card-empty" hidden><h3>Nothing to review yet</h3><p>Ask a question to create a working result.</p></div>
+        <div id="card-error" hidden role="alert"><h3>Result could not be displayed</h3><p>This is a simulated error state. No request failed.</p></div>
+        <div class="cn-actions">
+          <button type="button" class="cn-button cn-button--primary" id="card-inspect">Inspect in workspace</button>
+          <button type="button" class="cn-button" id="card-copy">Copy summary</button>
+        </div>
+      </article>
+      <p class="cn-pattern-status" id="card-feedback" role="status" aria-live="polite">Ready to inspect. Demo data only.</p>
+    </div>
+  </section>
+  <section class="pattern-section" aria-labelledby="collection-heading">
+    <div class="pattern-head"><div><span class="pattern-number">02 / INLINE CAROUSEL</span><h2 id="collection-heading">Compare without losing context.</h2><p>Four consistent options, one decision per card, native horizontal scrolling.</p></div></div>
+    <div class="cn-carousel" data-cn-carousel id="patterns-carousel">
+      <div class="cn-carousel__controls"><span class="cn-caption">Choose a presentation surface</span><div class="cn-carousel__nav">
+        <button type="button" class="cn-button" data-carousel-previous aria-label="Previous options">←</button>
+        <button type="button" class="cn-button" data-carousel-next aria-label="Next options">→</button>
+      </div></div>
+      <div class="cn-carousel__track" data-carousel-track tabindex="0" role="region" aria-label="Presentation surface options, scroll horizontally">
+        <article class="cn-carousel__card" data-carousel-option="Conversation" aria-current="false">
+          <div class="cn-carousel__art" aria-hidden="true"><svg viewBox="0 0 130 75" fill="none"><rect x="24" y="11" width="82" height="51" rx="8" stroke-width="1.5"/><path d="M34 26h50M34 36h61M34 46h33" stroke-width="2" stroke-linecap="round"/></svg></div>
+          <div class="cn-carousel__body"><h3>Conversation</h3><p>Explore and clarify a question while the task is still taking shape.</p><button type="button" class="cn-button" data-select-option aria-pressed="false">Choose conversation</button></div>
+        </article>
+        <article class="cn-carousel__card" data-carousel-option="Document" aria-current="false">
+          <div class="cn-carousel__art" aria-hidden="true"><svg viewBox="0 0 130 75" fill="none"><path d="M36 8h43l15 15v44H36zM79 8v15h15M48 34h34M48 43h31M48 52h23" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
+          <div class="cn-carousel__body"><h3>Document</h3><p>Keep a durable working object that can be revised and reviewed.</p><button type="button" class="cn-button" data-select-option aria-pressed="false">Choose document</button></div>
+        </article>
+        <article class="cn-carousel__card" data-carousel-option="Comparison" aria-current="false">
+          <div class="cn-carousel__art" aria-hidden="true"><svg viewBox="0 0 130 75" fill="none"><rect x="19" y="15" width="40" height="45" rx="5" stroke-width="1.5"/><rect x="71" y="15" width="40" height="45" rx="5" stroke-width="1.5"/><path d="M29 31h21M29 40h16M81 31h21M81 40h14" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="cn-carousel__body"><h3>Comparison</h3><p>Browse several choices under the same set of criteria.</p><button type="button" class="cn-button" data-select-option aria-pressed="false">Choose comparison</button></div>
+        </article>
+        <article class="cn-carousel__card" data-carousel-option="Workbench" aria-current="false">
+          <div class="cn-carousel__art" aria-hidden="true"><svg viewBox="0 0 130 75" fill="none"><rect x="16" y="10" width="98" height="54" rx="5" stroke-width="1.5"/><path d="M48 10v54M60 44l13-10 11 7 17-17" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+          <div class="cn-carousel__body"><h3>Workbench</h3><p>Inspect detailed material or work through multiple revisions.</p><button type="button" class="cn-button" data-select-option aria-pressed="false">Choose workbench</button></div>
+        </article>
+      </div>
+    </div>
+    <p id="selection-status" class="cn-pattern-status" role="status" aria-live="polite">No option selected.</p>
+  </section>
+  <section class="pattern-section" aria-labelledby="full-heading">
+    <div class="pattern-head"><div><span class="pattern-number">03 / FULL SCREEN</span><h2 id="full-heading">Open a focused workspace.</h2><p>Editable notes, source context and explicit local-only save. Close to return to the same page.</p></div></div>
+    <div class="workspace-preview"><div><h3>Working document</h3><p>Review the explanation, update its wording, and preserve the conversation context.</p></div><button type="button" class="cn-button cn-button--primary" data-open-workspace>Open workspace ↗</button></div>
+  </section>
+  <footer class="gallery-footer"><span>Independent examples · no model or MCP connection</span><a href="../../docs/claude-ui-reference.md">Source map</a></footer>
+</main>
+<dialog id="workspace-dialog" class="cn-workspace-dialog" aria-labelledby="workspace-heading">
+  <div class="cn-workspace__shell">
+    <header class="cn-workspace__head"><div><p class="cn-caption">FULL SCREEN · LOCAL PREVIEW</p><h2 id="workspace-heading">Working document</h2></div><button id="workspace-close" type="button" class="cn-button" aria-label="Close workspace">Close</button></header>
+    <div class="cn-workspace__cols"><section class="cn-workspace__editor"><label for="workspace-text">Edit the explanation</label><textarea id="workspace-text">Start with the central claim. Follow it with the strongest example. Explain why the example matters and where it applies.</textarea>
+        <div class="cn-actions"><button id="workspace-save" type="button" class="cn-button cn-button--primary" disabled>Apply locally</button></div><p id="workspace-status" role="status" aria-live="polite" class="cn-pattern-status">No unsaved edits · Version 1</p></section>
+      <aside class="cn-workspace__details"><h3>Context and boundaries</h3><p>This document is an authored demonstration, not an AI-generated response. Changes live only in this browser tab.</p><ul><li>Version changes only when text changes.</li><li>Close and reopen without losing a draft.</li><li>No cloud save or external execution.</li></ul></aside></div>
+  </div>
+</dialog>
+</body>
+</html>

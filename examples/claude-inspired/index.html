@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#FAF9F5">
+  <title>Commonplace — Claude-inspired UI reference</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="../../.agents/skills/conversation-native-ui/assets/claude-inspired.css">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body class="cnui" data-theme="light">
+  <svg class="icon-definitions" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <symbol id="icon-edit" viewBox="0 0 24 24"><path d="m15 5 4 4M4 20l4-1L20 7a2.8 2.8 0 0 0-4-4L4 15z"/></symbol>
+      <symbol id="icon-note" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8M8 16h6"/></symbol>
+      <symbol id="icon-compare" viewBox="0 0 24 24"><path d="M5 4v16M19 4v16M8 8h7l-2-2m2 2-2 2M16 16H9l2-2m-2 2 2 2"/></symbol>
+      <symbol id="icon-book" viewBox="0 0 24 24"><path d="M12 5v15M3 4c4 0 6 0 9 2 3-2 5-2 9-2v15c-4 0-6 0-9 2-3-2-5-2-9-2z"/></symbol>
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M12 19V5m-5 5 5-5 5 5"/></symbol>
+      <symbol id="icon-open" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6-9 9M10 4H4v16h16v-6"/></symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V3H3v13h5"/></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    </defs>
+  </svg>
+  <a href="#conversation" class="skip-link">Skip to conversation</a>
+  <div class="app-shell">
+    <aside class="rail" aria-label="Examples and appearance">
+      <a class="wordmark" href="index.html">Commonplace<span class="brand-dot" aria-hidden="true"></span></a>
+      <button id="new-chat" class="cn-button new-chat" type="button"><svg class="cn-icon" aria-hidden="true"><use href="#icon-edit"/></svg>New conversation</button>
+      <nav aria-label="Reference pages" class="reference-nav">
+        <a href="../../docs/claude-ui-reference.md"><svg class="cn-icon" aria-hidden="true"><use href="#icon-book"/></svg>Design notes</a>
+        <a href="../pattern-gallery/index.html"><svg class="cn-icon" aria-hidden="true"><use href="#icon-compare"/></svg>Pattern gallery</a>
+        <a href="../evidence-workbench/index.html"><svg class="cn-icon" aria-hidden="true"><use href="#icon-note"/></svg>Evidence workbench</a>
+      </nav>
+      <p class="rail-label">Try a conversation</p>
+      <div class="scenario-nav" aria-label="Example conversations">
+        <button type="button" data-scenario="writing" aria-pressed="true">Make an argument clearer</button>
+        <button type="button" data-scenario="comparison" aria-pressed="false">Choose a page layout</button>
+        <button type="button" data-scenario="research" aria-pressed="false">Frame a research question</button>
+      </div>
+      <div class="rail-bottom">
+        <span class="cn-caption">Appearance</span>
+        <div class="cn-options appearance" role="group" aria-label="Color theme">
+          <button type="button" class="cn-button cn-button--quiet" data-mode="light" aria-pressed="true">Light</button>
+          <button type="button" class="cn-button cn-button--quiet" data-mode="dark" aria-pressed="false">Dark</button>
+          <button type="button" class="cn-button cn-button--quiet" data-mode="system" aria-pressed="false">System</button>
+        </div>
+        <p class="cn-caption">Claude-inspired.<br>Your product, your content.</p>
+      </div>
+    </aside>
+    <div class="main-shell">
+      <header class="app-header">
+        <span>Personal workspace</span>
+        <a class="reference-link" href="https://claude.com/docs/connectors/building/mcp-apps/design-guidelines" target="_blank" rel="noopener noreferrer">Design reference<svg class="cn-icon" aria-hidden="true"><use href="#icon-open"/></svg></a>
+      </header>
+      <div class="workspace" id="workspace">
+        <main class="conversation" id="conversation" tabindex="-1">
+          <section class="intro" aria-label="Page introduction">
+            <h1>A little space to think.</h1>
+            <p>Bring a question. Leave with something you can use.</p>
+          </section>
+          <div class="prompt-options" role="group" aria-label="Choose a sample task">
+            <button type="button" class="cn-button" data-scenario="writing" aria-pressed="true"><svg class="cn-icon" aria-hidden="true"><use href="#icon-edit"/></svg>Write</button>
+            <button type="button" class="cn-button" data-scenario="comparison" aria-pressed="false"><svg class="cn-icon" aria-hidden="true"><use href="#icon-compare"/></svg>Compare</button>
+            <button type="button" class="cn-button" data-scenario="research" aria-pressed="false"><svg class="cn-icon" aria-hidden="true"><use href="#icon-book"/></svg>Explore</button>
+          </div>
+          <section class="thread" aria-label="Example conversation">
+            <p class="user-message" id="user-message">How can I make this argument easier to follow?</p>
+            <article class="assistant-message" aria-label="Illustrative assistant response">
+              <p class="response-label">Sample response</p>
+              <div class="cn-prose response-prose"><p id="response-text">Start with the point you want the reader to remember. Then use the evidence to make that point credible—not to delay it.</p></div>
+              <section class="cn-card result-card" aria-label="Reusable work item">
+                <div class="result-title-row"><svg class="cn-icon" aria-hidden="true"><use href="#icon-note"/></svg><h2 class="cn-title" id="result-title">A clearer argument</h2></div>
+                <p id="result-summary">One central claim, one supporting example, and a clear explanation of why the example matters.</p>
+                <div class="result-meta"><span>Working note</span><span id="version-label">Version 1</span></div>
+                <div class="cn-actions">
+                  <button type="button" class="cn-button cn-button--primary" id="open-note" aria-expanded="false" aria-controls="working-note">Open working note<svg class="cn-icon" aria-hidden="true"><use href="#icon-open"/></svg></button>
+                  <button type="button" class="cn-button cn-button--quiet" id="copy-note"><svg class="cn-icon" aria-hidden="true"><use href="#icon-copy"/></svg>Copy summary</button>
+                </div>
+              </section>
+            </article>
+            <div id="thread-history" class="thread-history" aria-label="Additional local messages" role="log" aria-live="polite" aria-relevant="additions"></div>
+          </section>
+          <form class="composer" id="composer">
+            <label class="sr-only" for="message">Write a message for the local UI preview</label>
+            <textarea id="message" rows="2" maxlength="2000" placeholder="What would you like to work through?" aria-describedby="demo-label"></textarea>
+            <div class="composer-toolbar"><span id="demo-label" class="cn-caption">Local UI preview · no model connected</span><button type="submit" id="send-message" class="cn-button cn-button--primary send-button" aria-label="Add message to local preview" disabled><svg class="cn-icon" aria-hidden="true"><use href="#icon-arrow"/></svg></button></div>
+          </form>
+          <p id="feedback" class="feedback cn-caption" role="status" aria-live="polite">All examples are authored samples. Nothing is sent to a server.</p>
+        </main>
+        <aside id="working-note" class="working-note" aria-labelledby="note-heading" hidden>
+          <header class="note-header"><div><p class="cn-caption">Working note</p><h2 id="note-heading" class="cn-title">A clearer argument</h2></div><button id="close-note" type="button" class="cn-icon-button" aria-label="Close working note"><svg class="cn-icon" aria-hidden="true"><use href="#icon-close"/></svg></button></header>
+          <label for="note-content" class="note-label">Edit the draft</label>
+          <textarea id="note-content" rows="10" maxlength="5000"></textarea>
+          <p class="cn-caption" id="edit-status" role="status" aria-live="polite">All edits applied in this tab</p>
+          <div class="cn-actions"><button type="button" class="cn-button cn-button--primary" id="save-note">Apply edit in this tab</button></div>
+          <p class="cn-caption">Closing keeps unfinished drafts. Switching examples or resetting requires confirmation if edits are unsaved. No publishing or cloud save.</p>
+          <details class="source-details"><summary>About this visual style</summary><p>The palette, type scale and geometry follow Anthropic's public MCP Apps guidance. The layout, system-font pairing and components are independent adaptations.</p><a href="../../docs/claude-ui-reference.md">View the source map</a></details>
+        </aside>
+      </div>
+      <footer class="app-footer"><span>Commonplace is an original demo, not a Claude product.</span><a href="../../NOTICE.md">Sources &amp; attribution</a></footer>
+    </div>
+  </div>
+  <dialog id="draft-dialog" class="draft-dialog" aria-labelledby="draft-dialog-heading" aria-describedby="draft-dialog-text">
+    <h2 id="draft-dialog-heading">Discard unsaved changes?</h2>
+    <p id="draft-dialog-text">Your working note has edits that have not been applied. Switching examples or starting a new conversation will discard them.</p>
+    <div class="cn-actions">
+      <button id="keep-draft" class="cn-button cn-button--primary" type="button">Keep editing</button>
+      <button id="discard-draft" class="cn-button" type="button">Discard and continue</button>
+    </div>
+  </dialog>
+</body>
+</html>

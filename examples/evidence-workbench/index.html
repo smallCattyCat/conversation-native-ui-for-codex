@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#FAF9F5">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" href="data:,">
+  <title>Conversation-Native UI · Evidence Workbench</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../../.agents/skills/conversation-native-ui/assets/claude-inspired.css">
+  <link rel="stylesheet" href="claude-profile.css">
+  <script defer src="app.js"></script>
+</head>
+<body class="cnui">
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar"><div class="brand"><span class="glyph">◇</span> Conversation-Native UI <span class="pill">Prototype</span></div><div class="topright"><span>Codex design starter</span><button id="theme" type="button" aria-label="Toggle dark theme">◐ Theme</button></div></header>
+  <div class="layout">
+    <aside class="sidebar" aria-label="Navigation"><p class="eyebrow">PATTERN LIBRARY</p><a class="nav active" href="#decision">◈ Decision card</a><a class="nav" href="#evidence">▤ Evidence ledger</a><a class="nav" href="#boundary">◇ Applicability</a><a class="nav" href="#action">↗ Review action</a><div class="sidebar-end">Conversation carries intent.<br>Evidence carries accountability.</div></aside>
+    <main id="main" class="main">
+      <div class="heading"><div><div class="eyebrow">INTERACTIVE REFERENCE / 01</div><h1>Evidence workbench</h1><p>From an assistant suggestion to a reviewable human decision.</p></div><span class="sampleflag">ILLUSTRATIVE DATA ONLY</span></div>
+      <section class="context" aria-label="Scenario"><div><label for="scenario">Sample scenario</label><select id="scenario"><option value="control">Control theory · controllability</option><option value="sncr">Engineering Copilot · SNCR proposal</option><option value="learning">Learning companion · shared explanation</option></select></div><div class="context-note">Switch scenarios to reuse the same interface contract across domains.</div></section>
+      <section id="decision" class="decision">
+        <div class="card-header"><span class="overline">01 — PROPOSED RESULT</span><span class="state" id="state">Proposed · not executed</span></div>
+        <h2 id="finding-title">Controllability: inspect the evidence</h2><p class="summary" id="finding">Illustrative diagnosis of a fictional system. Verify the actual system matrices before drawing conclusions.</p>
+        <div class="stat-grid"><div><span>Evidence entries</span><strong id="count">3</strong></div><div><span>Evidence identity</span><strong id="identity">Illustrative</strong></div><div><span>Authorization</span><strong id="authorization">Not confirmed</strong></div></div>
+        <div class="actions"><button id="inspect" type="button" class="primary">Inspect evidence <span>↗</span></button><button type="button" id="review" class="secondary">Review proposed action</button></div>
+      </section>
+      <div class="columns">
+        <section id="evidence" class="panel"><div class="section-head"><div><span class="overline">02 — PROVENANCE</span><h3>Evidence ledger</h3></div><span class="mini">expandable</span></div><p class="muted">Never confuse a sample, an inference, and a verified calculation.</p><div id="evidence-list" class="ledger"></div></section>
+        <div class="stack">
+          <section id="boundary" class="panel"><div class="section-head"><div><span class="overline">03 — BOUNDARIES</span><h3>Where this applies</h3></div></div><h4>Required conditions</h4><ul id="conditions"></ul><h4>Unknowns to resolve</h4><ul id="unknowns"></ul></section>
+          <section id="action" class="panel actionpanel"><div class="section-head"><div><span class="overline">04 — HUMAN AGENCY</span><h3>Action review</h3></div></div><p class="muted" id="action-text">No external action is available in this demonstration.</p><label class="check"><input id="ack" type="checkbox"> I reviewed the example and its limits.</label><div class="actions"><button id="confirm" disabled type="button" class="primary">Confirm locally</button><button id="reset" type="button" class="secondary">Reset</button></div><p id="action-status" class="small-status" role="status" aria-live="polite">Awaiting review. No action performed.</p></section>
+        </div>
+      </div>
+      <footer><span>Original demonstration · No live model, no external execution</span><a href="../claude-inspired/index.html">Claude-inspired conversation ↗</a><a href="../../docs/philosophy.md">Design philosophy ↗</a></footer>
+    </main>
+  </div>
+</body>
+</html>

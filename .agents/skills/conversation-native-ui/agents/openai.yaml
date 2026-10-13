@@ -1,0 +1,6 @@
+interface:
+  display_name: "Claude-inspired UI"
+  short_description: "Warm-neutral visual patterns and conversation UI details"
+  default_prompt: "Use $conversation-native-ui and its Claude-inspired visual profile. Read the visual guide and CSS assets, then adapt the details to this project's task and identity."
+policy:
+  allow_implicit_invocation: true

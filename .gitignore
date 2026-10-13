@@ -1,0 +1,16 @@
+.DS_Store
+__pycache__/
+*.pyc
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+build/
+pattern-gallery-ci.png
+pattern-gallery-mobile-ci.png
+.qa/
+.qa-reference/
+releases/
+site-dist/
+site-home-mobile-ci.png

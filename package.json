@@ -1,0 +1,13 @@
+{
+  "name": "conversation-native-ui-codex-checks",
+  "version": "0.2.0",
+  "private": true,
+  "description": "Optional browser CI only; public UI demos require no npm installation",
+  "type": "module",
+  "scripts": {
+    "test:browser": "node tests/ci-browser.mjs"
+  },
+  "devDependencies": {
+    "playwright": "1.64.0"
+  }
+}

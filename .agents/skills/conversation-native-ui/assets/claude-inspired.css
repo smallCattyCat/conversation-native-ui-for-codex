@@ -1,0 +1,122 @@
+/* Claude-inspired profile, R1. Original CSS implementation.
+ * Values: Anthropic MCP Apps design guidelines, checked 2026-10-13.
+ * Accent: anthropics/skills/brand-guidelines. See ../references/claude-ui-design.md.
+ * Host variables win. Fallback values are not a frozen promise about future hosts.
+ * No third-party fonts, icons or branding assets are bundled.
+ */
+.cnui {
+  --cn-fallback-canvas: #FAF9F5;
+  --cn-fallback-surface: #FFFFFF;
+  --cn-fallback-soft: #F5F4ED;
+  --cn-fallback-text: #141413;
+  --cn-fallback-secondary: #3D3D3A;
+  --cn-fallback-muted: #73726C;
+  --cn-fallback-border: rgba(31, 30, 29, .15);
+  --cn-fallback-control-border: rgba(31, 30, 29, .4);
+  --cn-fallback-inverse: #141413;
+  --cn-fallback-on-inverse: #FFFFFF;
+  --cn-canvas: var(--color-background-tertiary, var(--cn-fallback-canvas));
+  --cn-surface: var(--color-background-primary, var(--cn-fallback-surface));
+  --cn-soft: var(--color-background-secondary, var(--cn-fallback-soft));
+  --cn-text: var(--color-text-primary, var(--cn-fallback-text));
+  --cn-secondary: var(--color-text-secondary, var(--cn-fallback-secondary));
+  --cn-muted: var(--color-text-tertiary, var(--cn-fallback-muted));
+  --cn-border: var(--color-border-tertiary, var(--cn-fallback-border));
+  --cn-control-border: var(--color-border-primary, var(--cn-fallback-control-border));
+  --cn-inverse: var(--color-background-inverse, var(--cn-fallback-inverse));
+  --cn-on-inverse: var(--color-text-inverse, var(--cn-fallback-on-inverse));
+  --cn-focus: var(--color-ring-primary, var(--cn-text));
+  --cn-accent: #D97757;
+  --cn-sans: var(--font-sans, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif);
+  --cn-serif: Georgia, "Times New Roman", "Songti SC", SimSun, serif;
+  --cn-mono: var(--font-mono, ui-monospace, SFMono-Regular, Consolas, monospace);
+  --cn-caption: var(--font-text-xs-size, 12px);
+  --cn-control: var(--font-text-sm-size, 14px);
+  --cn-body: var(--font-text-md-size, 16px);
+  --cn-title: var(--font-heading-lg-size, 20px);
+  --cn-regular: var(--font-weight-normal, 400);
+  --cn-emphasis: var(--font-weight-semibold, 600);
+  --cn-radius-xs: var(--border-radius-xs, 4px);
+  --cn-radius-sm: var(--border-radius-sm, 6px);
+  --cn-radius-md: var(--border-radius-md, 8px);
+  --cn-radius-lg: var(--border-radius-lg, 10px);
+  --cn-radius-xl: var(--border-radius-xl, 12px);
+  --cn-rule: var(--border-width-regular, .5px);
+  --cn-shadow: var(--shadow-hairline, 0 1px 2px 0 rgba(0, 0, 0, .05));
+  /* The following spacing, reading width and timing are our adaptations. */
+  --cn-space-1: 4px;
+  --cn-space-2: 8px;
+  --cn-space-3: 12px;
+  --cn-space-4: 16px;
+  --cn-space-6: 24px;
+  --cn-space-8: 32px;
+  --cn-space-12: 48px;
+  --cn-reading-width: 720px;
+  --cn-rail-width: 240px;
+  --cn-motion: 140ms;
+  color: var(--cn-text);
+  background: var(--cn-canvas);
+  font: var(--cn-regular) var(--cn-body)/1.4 var(--cn-sans);
+}
+@media (prefers-color-scheme: dark) {
+  .cnui:not([data-theme="light"]) {
+    --cn-fallback-canvas: #141413;
+    --cn-fallback-surface: #30302E;
+    --cn-fallback-soft: #262624;
+    --cn-fallback-text: #FAF9F5;
+    --cn-fallback-secondary: #C2C0B6;
+    --cn-fallback-muted: #9C9A92;
+    --cn-fallback-border: rgba(222, 220, 209, .15);
+    --cn-fallback-control-border: rgba(222, 220, 209, .4);
+    --cn-fallback-inverse: #FAF9F5;
+    --cn-fallback-on-inverse: #141413;
+  }
+}
+.cnui[data-theme="dark"] {
+  --cn-fallback-canvas: #141413;
+  --cn-fallback-surface: #30302E;
+  --cn-fallback-soft: #262624;
+  --cn-fallback-text: #FAF9F5;
+  --cn-fallback-secondary: #C2C0B6;
+  --cn-fallback-muted: #9C9A92;
+  --cn-fallback-border: rgba(222, 220, 209, .15);
+  --cn-fallback-control-border: rgba(222, 220, 209, .4);
+  --cn-fallback-inverse: #FAF9F5;
+  --cn-fallback-on-inverse: #141413;
+}
+.cnui *, .cnui *::before, .cnui *::after { box-sizing: border-box; }
+.cnui [hidden] { display: none !important; }
+.cnui :is(button, input, textarea, select) { font: inherit; }
+.cnui :is(button, a, textarea, input, summary):focus-visible {
+  outline: 2px solid var(--cn-focus);
+  outline-offset: 4px;
+}
+.cnui a { color: var(--cn-secondary); text-underline-offset: 3px; }
+.cnui .cn-icon { width: 20px; height: 20px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.cnui .cn-button, .cnui .cn-icon-button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 10px 14px; border: 1px solid var(--cn-control-border);
+  border-radius: var(--cn-radius-md); background: transparent; color: var(--cn-text);
+  font: var(--cn-emphasis) var(--cn-control)/1.4 var(--cn-sans);
+  cursor: pointer; text-decoration: none;
+  transition: background-color var(--cn-motion), border-color var(--cn-motion);
+}
+.cnui .cn-button:hover:not(:disabled), .cnui .cn-icon-button:hover:not(:disabled) { background: var(--cn-soft); }
+.cnui .cn-button--primary { background: var(--cn-inverse); color: var(--cn-on-inverse); border-color: var(--cn-inverse); }
+.cnui .cn-button--primary:hover:not(:disabled) { background: var(--cn-inverse); filter: brightness(.9); }
+.cnui .cn-button--quiet, .cnui .cn-icon-button { border-color: transparent; }
+.cnui .cn-icon-button { width: 44px; padding: 10px; flex: none; }
+.cnui button:disabled { opacity: .45; cursor: not-allowed; }
+.cnui .cn-card { background: var(--cn-surface); border: var(--cn-rule) solid var(--cn-border); border-radius: var(--cn-radius-xl); padding: var(--cn-space-6); }
+.cnui .cn-title { font: var(--cn-emphasis) var(--cn-title)/1.25 var(--cn-sans); margin: 0 0 12px; letter-spacing: -.015em; }
+.cnui .cn-caption { color: var(--cn-muted); font-size: var(--cn-caption); line-height: 1.4; }
+.cnui .cn-prose { font-size: var(--cn-body); line-height: 1.65; overflow-wrap: anywhere; }
+.cnui .cn-prose p { margin: 0 0 16px; }
+.cnui .cn-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.cnui .cn-options { display: flex; flex-wrap: wrap; gap: 4px; }
+.cnui .cn-options button[aria-pressed="true"] { background: var(--cn-surface); border-color: var(--cn-border); }
+.cnui.cnui--embedded { background: transparent; }
+@media (prefers-reduced-motion: reduce) {
+  .cnui { --cn-motion: 0ms; }
+  .cnui *, .cnui *::before, .cnui *::after { animation: none !important; scroll-behavior: auto !important; transition: none !important; }
+}

@@ -1,0 +1,16 @@
+/* Keep the R0 workflow, apply the same source-mapped visual profile as the new demo. */
+body.cnui {
+  --bg: var(--cn-canvas); --surface: var(--cn-surface); --sub: var(--cn-soft);
+  --text: var(--cn-text); --muted: var(--cn-muted); --border: var(--cn-border);
+  --accent: var(--cn-inverse); --accenttext: var(--cn-on-inverse);
+  --focus: var(--cn-focus); --shadow: var(--cn-shadow);
+}
+.cnui .topbar { background: var(--cn-canvas); }
+.cnui .sidebar { background: var(--cn-soft); }
+.cnui .heading h1 { font-size: 36px; line-height: 1.2; }
+.cnui .decision, .cnui .panel { border-width: var(--cn-rule); }
+.cnui .actions button { border-radius: var(--cn-radius-md); min-height: 44px; font-weight: 600; }
+.cnui .decision h2, .cnui .panel h3 { font-size: 20px; font-weight: 600; }
+.cnui .sampleflag, .cnui .overline, .cnui .eyebrow { letter-spacing: .025em; }
+.cnui .topright a { color: var(--cn-secondary); }
+.cnui .sidebar-end, .cnui .sidebar .eyebrow { color: var(--cn-secondary); }

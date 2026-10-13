@@ -4,6 +4,8 @@
 
 A reusable Agent Skill, scoped CSS profile, standalone DOM component helpers and three working browser demos. The visual details are explicitly grounded in Anthropic's public MCP Apps for Claude design guidance. Components and page compositions are independently implemented, with documented values distinguished from our adaptations.
 
+**[Live interactive demos](https://smallcattycat.github.io/conversation-native-ui-for-codex/)** · [Conversation](https://smallcattycat.github.io/conversation-native-ui-for-codex/examples/claude-inspired/) · [Pattern gallery](https://smallcattycat.github.io/conversation-native-ui-for-codex/examples/pattern-gallery/) · [Evidence workbench](https://smallcattycat.github.io/conversation-native-ui-for-codex/examples/evidence-workbench/)
+
 Use the visual profile alone for everyday pages. Evidence, applicability and authorization patterns are optional extensions for professional assistants. This is an unofficial starter, not an MCP transport or model backend.
 
 [简体中文](README.zh-CN.md) · [Source map](docs/figma-crosswalk.md) · [Conversation demo](examples/claude-inspired/index.html) · [Pattern gallery](examples/pattern-gallery/index.html) · [Professional workbench](examples/evidence-workbench/index.html) · [Publishing guide](docs/publishing.md)
@@ -93,10 +95,11 @@ python3 scripts/build_site.py
 python3 -m http.server 8000 --directory site-dist
 ```
 
-The standalone landing page is at http://localhost:8000/ and links to all three demos. Source paths for the portable Skill are rewritten to public `assets/` in the generated site. A separate GitHub Actions workflow can publish the site after the public repository exists and its Pages source is set to **GitHub Actions**; see [publishing instructions](docs/publishing.md). Do not treat the expected Pages URL as live until the deployment is verified.
+The standalone landing page is at http://localhost:8000/ and links to all three demos. Source paths for the portable Skill are rewritten to public `assets/` in the generated site. **GitHub Pages is live at [the public demo site](https://smallcattycat.github.io/conversation-native-ui-for-codex/)**; the [deployment workflow](https://github.com/smallCattyCat/conversation-native-ui-for-codex/actions/runs/38452675497) completed successfully on its second attempt. See [publishing instructions](docs/publishing.md).
 
 ## Attribution and licensing
 
 Original code and writing in this repository: MIT license (see LICENSE).
 
 Visual references: [Anthropic's public MCP Apps design guidance](https://claude.com/docs/connectors/building/mcp-apps/design-guidelines) and [Figma UI Kit](https://www.figma.com/community/file/1597641111449594397/mcp-apps-for-claude). Source-to-implementation mapping and font substitutions: [visual guide](.agents/skills/conversation-native-ui/references/claude-ui-design.md). Full credits: [NOTICE.md](NOTICE.md). The original [MCP Apps for Claude Community resource](https://www.figma.com/community/file/1597641111449594397/mcp-apps-for-claude) is **not vendored** here. Claude, Anthropic, Codex, Figma, and other product names belong to their respective owners. This project is not affiliated with or endorsed by them.
+

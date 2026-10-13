@@ -1,6 +1,6 @@
 # R2 — Claude-inspired, reusable conversation patterns
 
-The public source of the Conversation-Native UI for Codex starter is now at [GitHub](https://github.com/smallCattyCat/conversation-native-ui-for-codex). Publication began on **2026-10-13**. GitHub Actions checks passed; interactive GitHub Pages requires the repository owner to enable Pages in Settings.
+The public source of the Conversation-Native UI for Codex starter is now at [GitHub](https://github.com/smallCattyCat/conversation-native-ui-for-codex). Publication began on **2026-10-13**. GitHub Actions checks and Pages deployment have succeeded. [Open the live demos](https://smallcattycat.github.io/conversation-native-ui-for-codex/).
 
 ## Fixed
 
@@ -36,3 +36,4 @@ python3 scripts/install_skill.py --target /path/to/project --dry-run
 ```
 
 See [README.md](README.md), [component contracts](docs/component-contracts.md), [validation](docs/validation-R2.md), and [Pages activation](docs/publishing.md).
+

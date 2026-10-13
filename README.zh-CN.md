@@ -4,6 +4,8 @@
 
 暖中性色、清楚但克制的字号层级、衬线与无衬线的分工、细边框、轻阴影、限宽阅读列、单色线框图标和按需展开的工作区。本项目明确引用 Anthropic 的公开设计规范，将官方参数与自行适配的布局选择逐项区分。
 
+**[在线演示站](https://smallcattycat.github.io/conversation-native-ui-for-codex/)** · [对话与写作](https://smallcattycat.github.io/conversation-native-ui-for-codex/examples/claude-inspired/) · [组件画廊](https://smallcattycat.github.io/conversation-native-ui-for-codex/examples/pattern-gallery/) · [证据工作台](https://smallcattycat.github.io/conversation-native-ui-for-codex/examples/evidence-workbench/)
+
 视觉预设可以独立复用；证据卡、适用条件、授权状态是专业任务的可选组件，不要求所有页面都变成工程仪表盘。
 
 ## R2 包括什么
@@ -54,7 +56,7 @@ python3 scripts/build_site.py
 python3 -m http.server 8000 --directory site-dist
 ```
 
-浏览器打开 `http://localhost:8000/` 可查看站点首页和三个示例。公开仓库建立并启用 **Settings → Pages → GitHub Actions** 后，可使用 `.github/workflows/pages.yml` 自动发布演示站。部署成功前不把预计地址称为已上线。具体见 [发布说明](docs/publishing.md)。
+浏览器打开 `http://localhost:8000/` 可查看站点首页和三个示例。**GitHub Pages 已正式上线**：[访问在线演示站](https://smallcattycat.github.io/conversation-native-ui-for-codex/)。部署工作流 [第 2 次运行成功](https://github.com/smallCattyCat/conversation-native-ui-for-codex/actions/runs/38452675497)，首页和三个示例已经通过实际浏览器验证。详情见 [发布说明](docs/publishing.md)。
 
 ## 与已有 frontend-agent-kit 的关系
 
@@ -65,3 +67,4 @@ python3 -m http.server 8000 --directory site-dist
 视觉预设明确借鉴 Anthropic 的 MCP Apps for Claude 公开规范及品牌色资料；组件代码与页面组合独立实现。**没有打包原始 Figma 文件、Logo 或字体文件**。引用见 NOTICE.md。源码和原创文档使用 MIT 授权；第三方资源仍保留其原有权利。
 
 参见 [设计哲学](docs/philosophy.md)、[交互模式](docs/patterns.md)、[质量清单](docs/quality-gates.md)。
+

@@ -1,34 +1,37 @@
-# Public publishing checklist (2026-10-13)
+# Publishing and deployment status (2026-10-13)
 
-This repository is prepared for public distribution but **cannot create a GitHub repository with the currently connected GitHub API actions**. No public repository or GitHub Pages site is claimed until GitHub confirms it exists and Actions completes successfully.
+## Public source: published
 
-## One action needed from the owner
+The public repository is [smallCattyCat/conversation-native-ui-for-codex](https://github.com/smallCattyCat/conversation-native-ui-for-codex). Its `main` branch contains all 58 release source files, including the Codex Skill, standalone demos, tests, landing-page source, and GitHub Actions workflows.
 
-1. Visit https://github.com/new under the GitHub account **smallCattyCat**.
-2. Create a **public** repository named **conversation-native-ui-for-codex**.
-3. Repository description suggestion: `Independent Claude-inspired UI patterns for Codex — reusable Skill, tokens, components and live examples.`
-4. Set default branch to **main**. Adding the default GitHub README is optional; the publisher can reconcile it, but an empty repository is easiest for standard Git push.
-5. Make sure the existing ChatGPT GitHub connection has read/write access to this new repository. GitHub App installations scoped to selected repositories may require adding the new one.
+The initial publication commit is [9635209](https://github.com/smallCattyCat/conversation-native-ui-for-codex/commit/9635209e7e17c02f55ed3bf28623c4225bbb2a2f). The source tree matched the local R2 publication tree SHA `cb44fd4bb34d84e50882c91884b2a3348b264554`.
 
-After creation, request that the assistant finish the publish. The assistant can use the connected GitHub repository tools to upload the release contents and verify the result. No credentials should be pasted into chat.
+The first [Check Codex UI Kit workflow](https://github.com/smallCattyCat/conversation-native-ui-for-codex/actions/runs/38452145435) completed successfully, including Python tests, JavaScript checks, dependency installation and Chromium browser tests.
 
-## Safe publication rule
+## One remaining owner setting: GitHub Pages
 
-Historical local commits used an automatically generated macOS `.local` author email, so do **not** push the old history by accident. For public release, the distribution `main` branch is prepared as a **new root commit** under the owner's GitHub noreply address, while the previous commit history is retained in a private local backup branch. Do not use `git push --all`, `git push --mirror`, or `git push --tags` without auditing refs.
+The [Pages workflow](https://github.com/smallCattyCat/conversation-native-ui-for-codex/actions/runs/38452145322) built the site and passed site-path tests, but failed at `actions/configure-pages` because GitHub Pages was not yet enabled for the repository. This is **not** a static-site build failure.
 
-## GitHub Pages activation
+To enable:
 
-A Pages workflow at `.github/workflows/pages.yml` builds a static bundle with no external frontend dependencies. The build stages examples and copies portable CSS/JS to public `assets/`, avoiding accidental exclusion of the hidden `.agents` path.
+1. Open [Settings → Pages](https://github.com/smallCattyCat/conversation-native-ui-for-codex/settings/pages).
+2. Under **Build and deployment → Source**, choose **GitHub Actions**. Save if required.
+3. In [Actions](https://github.com/smallCattyCat/conversation-native-ui-for-codex/actions), open the latest **Publish demo to GitHub Pages** run and choose **Re-run failed jobs**, or dispatch that workflow manually.
+4. Wait for both build and deploy jobs to complete successfully, then open the site.
 
-When the repo is public, open **Settings → Pages → Build and deployment → Source: GitHub Actions**. The next `main` push (or manual `workflow_dispatch` run) should build and deploy the demo. See [GitHub official custom workflows documentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+Expected public site **after the successful deployment only**:
+https://smallCattyCat.github.io/conversation-native-ui-for-codex/
 
-Expected URL **only after successful deployment**:
-`https://smallCattyCat.github.io/conversation-native-ui-for-codex/`
+The Pages workflow stages original components into a self-contained static site. It does not require a model backend, API key, third-party fonts, or a running MCP host.
 
-## Verification gates
+## History and security
 
-- No third-party proprietary UI assets bundled; README/NOTICE contain clear credits.
-- No private Nutstore paths, secrets, personal research data, or local Git machine emails in published history.
-- Run offline Python tests and site build; test links and browser demos.
-- Observe GitHub Actions actual results after push. Do not claim green Actions or a live URL based solely on YAML files.
-- The Codex A/B performance benchmark is a written protocol only, not verified improvements.
+Public history was initialized without the earlier locally generated macOS `.local` author emails. The earlier development history is preserved only in private local backup branches. Do not push all local branches or use `git push --mirror` without a separate audit.
+
+All repository content was screened for credentials, personal paths and embedded private assets before publication. Demo data are illustrative. The repository is an **unofficial** adaptation of public design ideas, not an Anthropic/Claude or OpenAI product, and does not redistribute original Figma artwork.
+
+## Open research / validation boundaries
+
+The Codex Skill A/B benchmark is specified but **not run**. There is no Figma node-level pixel-match assertion or genuine Claude/ChatGPT MCP App host integration. Browser CI passing does not substitute for assistive-technology certification.
+
+Primary references: [source crosswalk](figma-crosswalk.md), [R2 validation](validation-R2.md), [official GitHub Pages custom workflows](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).

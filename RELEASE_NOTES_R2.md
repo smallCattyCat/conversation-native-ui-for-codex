@@ -1,29 +1,30 @@
 # R2 — Claude-inspired, reusable conversation patterns
 
-This release upgrades the R1 visual example into a more reliable and portable design starter.
+The public source of the Conversation-Native UI for Codex starter is now at [GitHub](https://github.com/smallCattyCat/conversation-native-ui-for-codex). Publication began on **2026-10-13**. GitHub Actions checks passed; interactive GitHub Pages requires the repository owner to enable Pages in Settings.
 
 ## Fixed
 
-- A reopened working note no longer overwrites uncommitted edits.
-- Switching examples or starting a new conversation while a note is dirty asks for explicit discard confirmation.
+- Reopening a working note no longer overwrites uncommitted edits.
+- Switching examples or starting a new conversation with dirty text requires confirmation.
 - Revisions increment only for changed, nonblank content.
-- Follow-up local messages append to the conversation rather than overwriting its first sample.
-- Reload/navigation attempts warn about unsaved drafts on browsers that permit `beforeunload` prompts.
+- Local follow-up messages append rather than replace earlier turns.
+- Supported browsers warn before reloading/navigating away with unsaved drafts.
 
 ## Added
 
-- A standalone **Pattern Gallery** with a compact inline card (ready/loading/empty/error), a four-option horizontal carousel and a browser-fullscreen editable workspace.
-- Portable scoped `assets/patterns.css` and `assets/patterns.js` in the Codex Skill.
-- `scripts/install_skill.py`: dry run, refuses to overwrite, opt-in backup-before-replace.
-- Official-guideline-to-implementation crosswalk and explicit source boundaries.
-- Structured three-task A/B benchmark protocol and scoring rubric (not yet executed).
-- Python installer unit tests, more static checks, 75 browser assertions and a GitHub Actions workflow with optional Playwright Chromium execution.
+- **Pattern Gallery**: inline card (ready/loading/empty/error), four-option carousel and standalone browser-fullscreen editable workspace.
+- Portable scoped `assets/patterns.css` and `assets/patterns.js`.
+- Safe installer `scripts/install_skill.py` with dry-run and backup-before-force-update behavior.
+- Figma/official source-to-implementation crosswalk.
+- Three-task A/B benchmark protocol and scoring rubric (**not yet executed**).
+- Python tests, 75 browser assertions and GitHub Actions tests (including Chromium).
+- Independent GitHub Pages landing-page source, path tests and deployment workflow.
 
 ## Not included
 
-Actual Claude or ChatGPT MCP host integration, Figma node-level pixel comparison, real model backend, live technical computation, completed Codex A/B evidence or public GitHub publication.
+True Claude or ChatGPT MCP-host integration, Figma node-level pixel comparison, a real model backend, live professional computations or measured Codex design-output improvement.
 
-## Quick start
+## Try it locally
 
 ```bash
 python3 -m http.server 8000
@@ -34,4 +35,4 @@ python3 -m unittest discover -s tests -p 'test_*.py'
 python3 scripts/install_skill.py --target /path/to/project --dry-run
 ```
 
-See [README.md](README.md), [component contracts](docs/component-contracts.md), and [validation](docs/validation-R2.md).
+See [README.md](README.md), [component contracts](docs/component-contracts.md), [validation](docs/validation-R2.md), and [Pages activation](docs/publishing.md).

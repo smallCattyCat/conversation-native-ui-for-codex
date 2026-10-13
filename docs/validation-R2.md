@@ -1,29 +1,27 @@
 # R2 validation and boundaries
 
-Date: **2026-10-13**. Scope: local Codex UI Kit in Nutstore.
+Date: **2026-10-13**. Scope: public Codex UI Kit source and local browser examples.
 
-## Verified in this iteration
+## Verified
 
-- `python3 scripts/check_repo.py` — structure and static contracts: PASS.
-- `python3 scripts/check_visual_profile.py` — 10 visual/markup source checks: PASS.
-- `python3 -m unittest discover -s tests -p 'test_*.py'` — 2 installer checks: PASS; install dry run, first install, refusal to overwrite, force-with-backup, and missing target covered.
-- `git diff --check` — no whitespace/diff errors after final edits.
-- Browser harness at `/tests/browser-checks.html`: **75 assertions PASS**, observed in the connected Chromium browser. Tests included 1425, 1024, 768, 390 and 320px conversation widths; pattern gallery at 320, 390, 768 and 1425px; draft retention on repeated open, unsaved switch confirmation/cancel, content-based versions, append-only local messages; card loading/empty/error; carousel choice state; fullscreen draft and close; theme; standalone workbench authorization boundary.
-- Actual browser rendered the new pattern gallery with the public-token-inspired palette. No duplicated third-party logo/font/artwork.
+- `python3 scripts/check_repo.py` — static structure and required assets: PASS.
+- `python3 scripts/check_visual_profile.py` — 10 markup/visual-source assertions: PASS.
+- `python3 -m unittest discover -s tests -p 'test_*.py'` — 4 stdlib unit tests (Skill installer and GitHub Pages site construction): PASS.
+- `git diff --check` — no patch-format violations.
+- Browser harness at `/tests/browser-checks.html` — 75 DOM interaction and responsive assertions PASS: 1425/1024/768/390/320px conversation views, pattern gallery responsive layout, unsaved draft preservation, scenario confirmation, versioning, append-only local conversation, card states, carousel selection, fullscreen browser dialog and local review boundaries.
+- The connected desktop Chromium browser loaded the independent landing page and navigated to the staged gallery.
+- The published [GitHub Actions Check Codex UI Kit run](https://github.com/smallCattyCat/conversation-native-ui-for-codex/actions/runs/38452145435) completed successfully, including Playwright/Chromium checks.
+- GitHub accepted the full release source tree; remote and local published tree both resolved to `cb44fd4bb34d84e50882c91884b2a3348b264554`.
 
-## What these checks do NOT prove
+## Remaining limitations
 
-1. An exact pixel match to the Figma source: no node-specific design file was inspected; see [figma crosswalk](figma-crosswalk.md).
-2. Actual Claude/ChatGPT MCP display-mode compatibility: the fullscreen browser dialog is a **standalone simulator**, not an SDK integration.
-3. Improved Codex model design output: the [A/B benchmark protocol](../benchmarks/README.md) is supplied but has **no completed runs**.
-4. Screen-reader or physical mobile-device accessibility certification: browser interaction and width tests are narrower than comprehensive AT QA.
-5. Deployment quality: no public GitHub Actions run is available until the GitHub repository is published. The CI configuration is provided, but a green remote run must be observed before calling remote CI verified.
-6. Correctness of domain-specific engineering computations: all result content is illustrative only.
+1. No pixel-identical Figma claim: original design nodes were not examined; see [source crosswalk](figma-crosswalk.md).
+2. No genuine MCP host display-mode integration. The standalone fullscreen dialog is a browser demonstration.
+3. Codex design-output improvement is **unverified**. The [A/B benchmark](../benchmarks/README.md) is a protocol, not completed results.
+4. Browser tests do not constitute full screen-reader or physical mobile-device accessibility certification.
+5. GitHub Pages has not yet been enabled: the first workflow's build and path checks passed, but `actions/configure-pages` failed with a Pages-not-enabled 404. See [publishing steps](publishing.md).
+6. Professional example data are explicitly illustrative, not engineering calculations or real-world actuation.
 
-## Release acceptance
+## Design provenance
 
-R2 is an honest, reusable **local design starter** with a working browser demo, portable Skill, non-destructive installer, source crosswalk, static and browser tests, and a GitHub-ready workflow. It is **not** yet a live MCP App, evidence of model-performance improvement, or a public GitHub deployment.
-
-## Visual source decisions
-
-Claude publicly documents the 3 display modes and shared color/type/radius tokens; we use those published constraints in original components. Our 720px reading column, 240px navigation, Georgia/system fallback and dialog-based standalone fullscreen remain *adaptations*, not exported Figma metrics.
+Published Anthropic design tokens and surface constraints inform independently written component CSS and JavaScript. Our reading-column width, navigation dimensions, system-font fallback and fullscreen browser dialog are **adaptations**, not extracted Figma geometry.
